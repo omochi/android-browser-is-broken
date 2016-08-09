@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<style>
+    .a {
+        position: relative;
+    }
+    .b {
+        position: relative;
+    }
+</style>
+<script>
+    function main() {
+        var a = document.getElementsByClassName("a")[0];
+        var b = document.getElementsByClassName("b")[0];
+
+        setTimeout(function() {
+            a.style["position"] = "fixed";
+            b.style["position"] = "static";
+        }, 1000);
+    }
+</script>
+</head>
+<body>
+
+<div class="a">
+    1
+    <div class="b">
+        2
+    </div>
+    3
+</div>
+
+<script>
+    main();
+</script>
+</body>
+</html>
