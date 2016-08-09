@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<style>
+    p {
+        margin: 0px;
+    }
+    div {
+        margin: 0px;
+    }
+    .area {
+       	height: 2000px;
+        background-color: lightgreen;
+    }
+    .panel {
+        top: 0px;
+        left: 0px;
+        width: 220px;
+        background-color: orange;
+        border: solid 4px black;
+    }
+    .content {
+        position: relative;
+        width: 200px;
+        background-color: yellow;
+        border: solid 4px black;
+    }
+</style>
+<script>
+    function main() {
+        var panel = document.getElementsByClassName("panel")[0];
+        window.addEventListener("scroll", function() {
+            if (document.body.scrollTop < 200) {
+                panel.style["position"] = "relative";
+
+                panel.style["border-color"] = "blue";
+            } else {
+                panel.style["position"] = "fixed";
+                
+                panel.style["border-color"] = "red";
+            }
+        });
+    }
+</script>
+</head>
+<body>
+
+<div class="area">
+    <div class="panel">
+        <div class="content">
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+        </div>
+    </div>
+</div>
+
+<script>main();</script>
+</body>
+</html>
