@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<style>
+    p {
+        margin: 0px;
+    }
+    div {
+        margin: 0px;
+    }
+    .area {
+       	height: 2000px;
+        background-color: lightgreen;
+    }
+    .panel {
+        top: 0px;
+        left: 0px;
+        width: 220px;
+        background-color: orange;
+        border: solid 4px black;
+    }
+    .panel-relative {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 220px;
+        background-color: orange;
+        border: solid 4px blue;
+    }
+    .panel-fixed {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 220px;
+        background-color: orange;
+        border: solid 4px red;
+    }
+    .content {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        background-color: yellow;
+        border: solid 4px black;
+    }
+    .a {
+        border: solid 4px gray;
+    }
+</style>
+<script>
+    function main() {
+        var area = document.getElementsByClassName("area")[0];
+        var panel = document.getElementsByClassName("panel")[0];
+        var content = document.getElementsByClassName("content")[0];
+
+        var panelContent = panel.innerHTML;
+
+        area.removeChild(panel);
+
+        window.addEventListener("scroll", function() {
+            if (document.body.scrollTop < 200) {
+
+                var fixedElement = document.getElementsByClassName("panel-fixed")[0];
+                if (fixedElement != null) {
+                    area.removeChild(fixedElement);
+                }
+
+                if (document.getElementsByClassName("panel-relative").length == 0) {
+                    var element = document.createElement("div");
+                    element.className = "panel-relative";
+                    element.innerHTML = panelContent;
+                    area.appendChild(element);
+                }
+
+
+            } else {
+
+                var relativeElement = document.getElementsByClassName("panel-relative")[0];
+                if (relativeElement != null) {
+                    area.removeChild(relativeElement);
+                }
+
+                if (document.getElementsByClassName("panel-fixed").length == 0) {
+                    var element = document.createElement("div");
+                    element.className = "panel-fixed";
+                    element.innerHTML = panelContent;
+                    area.appendChild(element);
+                }
+            }
+        });
+    }
+</script>
+</head>
+<body>
+
+<div class="area">
+    <div class="panel">
+        <div class="content">
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+            <p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p><p>panel</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    main();
+</script>
+</body>
+</html>

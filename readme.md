@@ -21,9 +21,15 @@ Broken browser may fail to setup `fixed` state correctly.
 If you put `fixed` in initial css,
 yellow inner box disappears during `position:relative` conversely.
 
+# workaround
+
+Create new element and delete old one instead of changing style.
+
 # files
 
 `index.html`: main issue.
 
-`crash.html`: browser crash case.
+`workaround.html`: workaround example.
+
+`crash.html`: browser crash case. browser will crash with `SIGSEGV`.
 
